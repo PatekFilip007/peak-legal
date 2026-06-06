@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Peak — Legal</title>
+<meta name="description" content="Privacy Policy and Terms of Service for Peak, an AI-powered skill learning and collaborative workspace app by PatChamp." />
+
+<!-- Fonts: distinctive serif headings + clean sans body -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --bg:        #FCFCFA;
+    --bg-tint:   #F4F5F2;
+    --surface:   #FFFFFF;
+    --ink:       #19191D;
+    --ink-soft:  #3A3A41;
+    --muted:     #6C6C75;
+    --hairline:  #E9E9E4;
+    --accent:    #2563EB;
+    --accent-ink:#1D4FD8;
+    --accent-wash:#EFF4FF;
+    --radius:    18px;
+    --maxw:      760px;
+    --serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --sans:  "Hanken Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background-color: var(--bg);
+    background-image:
+      radial-gradient(1200px 600px at 80% -10%, rgba(37,99,235,0.06), transparent 60%),
+      radial-gradient(900px 500px at -10% 0%, rgba(37,99,235,0.04), transparent 55%);
+    background-attachment: fixed;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── HEADER / NAV ──────────────────────────────────────── */
+  header.site {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(252,252,250,0.82);
+    backdrop-filter: saturate(180%) blur(14px);
+    -webkit-backdrop-filter: saturate(180%) blur(14px);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .nav-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 14px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .brand .icon-wrap {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--accent);
+    display: grid;
+    place-items: center;
+    box-shadow: 0 4px 14px rgba(37,99,235,0.22);
+    flex-shrink: 0;
+  }
+  .brand .icon-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .brand .icon-wrap .fallback {
+    font-family: var(--serif);
+    font-weight: 600;
+    color: #fff;
+    font-size: 21px;
+    line-height: 1;
+  }
+  .brand .name {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: -0.01em;
+  }
+  .brand .name small {
+    display: block;
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: -2px;
+  }
+
+  nav.tabs {
+    display: flex;
+    gap: 4px;
+    background: var(--bg-tint);
+    border: 1px solid var(--hairline);
+    border-radius: 999px;
+    padding: 4px;
+  }
+  nav.tabs button {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--muted);
+    background: transparent;
+    border: none;
+    border-radius: 999px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: color .2s ease, background .2s ease, box-shadow .2s ease;
+    white-space: nowrap;
+  }
+  nav.tabs button:hover { color: var(--ink); }
+  nav.tabs button[aria-selected="true"] {
+    color: var(--accent-ink);
+    background: var(--surface);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  nav.tabs button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  /* ── MAIN ──────────────────────────────────────────────── */
+  main {
+    flex: 1;
+    max-width: var(--maxw);
+    width: 100%;
+    margin: 0 auto;
+    padding: 46px 22px 80px;
+  }
+
+  .doc[hidden] { display: none; }
+  .doc {
+    animation: fade .45s cubic-bezier(.22,1,.36,1) both;
+  }
+  @keyframes fade {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .doc-head { margin-bottom: 34px; }
+  .doc-eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    background: var(--accent-wash);
+    border: 1px solid #DCE7FF;
+    padding: 5px 11px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+  }
+  .doc h1 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(34px, 6vw, 46px);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .updated {
+    margin-top: 12px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .updated strong { color: var(--ink-soft); font-weight: 600; }
+
+  .lead {
+    font-size: 17.5px;
+    color: var(--ink-soft);
+    margin: 22px 0 8px;
+  }
+
+  section.block { margin-top: 34px; }
+  section.block h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 23px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 12px;
+    padding-top: 8px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  section.block h2 .num {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+    background: var(--accent-wash);
+    border-radius: 7px;
+    padding: 3px 8px;
+    line-height: 1;
+    position: relative;
+    top: -2px;
+  }
+  section.block h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 20px 0 6px;
+  }
+
+  p { color: var(--ink-soft); margin-bottom: 14px; font-size: 15.5px; }
+  ul { margin: 6px 0 16px; padding-left: 0; list-style: none; }
+  li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 10px;
+    color: var(--ink-soft);
+    font-size: 15.5px;
+  }
+  li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 10px;
+    width: 6px; height: 6px;
+    border-radius: 2px;
+    background: var(--accent);
+    transform: rotate(45deg);
+  }
+  li strong, p strong { color: var(--ink); font-weight: 700; }
+  a.link { color: var(--accent-ink); font-weight: 600; text-decoration: none; }
+  a.link:hover { text-decoration: underline; }
+
+  .callout {
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-left: 3px solid var(--accent);
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin: 18px 0;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+
+  /* ── DATA TABLE ────────────────────────────────────────── */
+  .table-wrap {
+    border: 1px solid var(--hairline);
+    border-radius: 14px;
+    overflow: hidden;
+    margin: 16px 0 8px;
+    background: var(--surface);
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 12px 15px; vertical-align: top; }
+  thead th {
+    background: var(--bg-tint);
+    font-weight: 700;
+    color: var(--ink);
+    font-size: 13px;
+    letter-spacing: 0.01em;
+  }
+  tbody tr { border-top: 1px solid var(--hairline); }
+  tbody td:first-child { font-weight: 600; color: var(--ink); white-space: nowrap; }
+  tbody td { color: var(--muted); }
+
+  /* ── FOOTER ────────────────────────────────────────────── */
+  footer.site {
+    border-top: 1px solid var(--hairline);
+    background: var(--bg-tint);
+  }
+  .foot-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 28px 22px 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    font-size: 13.5px;
+    color: var(--muted);
+  }
+  .foot-links { display: flex; gap: 18px; }
+  .foot-links button {
+    background: none; border: none; cursor: pointer;
+    font-family: var(--sans); font-size: 13.5px; font-weight: 600;
+    color: var(--ink-soft); padding: 0;
+  }
+  .foot-links button:hover { color: var(--accent-ink); }
+
+  /* ── RESPONSIVE ────────────────────────────────────────── */
+  @media (max-width: 560px) {
+    .nav-inner { justify-content: center; }
+    nav.tabs { width: 100%; }
+    nav.tabs button { flex: 1; text-align: center; padding: 9px 8px; }
+    .brand .name { font-size: 20px; }
+    main { padding-top: 34px; }
+    th, td { padding: 10px 11px; }
+    tbody td:first-child { white-space: normal; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+
+  /* Print-friendly (reviewers / records) */
+  @media print {
+    header.site, footer.site { position: static; }
+    nav.tabs, .foot-links { display: none; }
+    .doc[hidden] { display: block !important; }
+    body { background: #fff; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─────────────── HEADER / NAVIGATION ─────────────── -->
+<header class="site">
+  <div class="nav-inner">
+    <a class="brand" href="#privacy" aria-label="Peak home">
+      <span class="icon-wrap">
+        <!-- Drop your real icon (app_icon_new.png) next to this file.
+             If it's missing, the "P" monogram shows automatically. -->
+        <img src="app_icon_new.png" alt="Peak app icon"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+        <span class="fallback" style="display:none;">P</span>
+      </span>
+      <span class="name">Peak<small>by PatChamp</small></span>
+    </a>
+
+    <nav class="tabs" role="tablist" aria-label="Legal documents">
+      <button id="tab-privacy" role="tab" aria-selected="true"  aria-controls="doc-privacy">Privacy Policy</button>
+      <button id="tab-terms"   role="tab" aria-selected="false" aria-controls="doc-terms">Terms of Service</button>
+    </nav>
+  </div>
+</header>
+
+<!-- ─────────────── MAIN CONTENT ─────────────── -->
+<main>
+
+  <!-- ============ PRIVACY POLICY ============ -->
+  <article class="doc" id="doc-privacy" role="tabpanel" aria-labelledby="tab-privacy">
+    <div class="doc-head">
+      <span class="doc-eyebrow">Privacy Policy</span>
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: <strong>June 6, 2026</strong></p>
+    </div>
+
+    <p class="lead">Your privacy matters to us. This Privacy Policy explains what information Peak collects, how we use and protect it, and the choices you have over your data.</p>
+    <p>Peak (the “App”) is owned and operated by PatChamp (“we,” “us,” or “our”). Peak is an AI-powered learning and collaboration platform that guides users through structured skill development, project-based verification, and collaborative workspaces. By using the App, you agree to the practices described in this Policy.</p>
+
+    <section class="block">
+      <h2><span class="num">1</span> Information We Collect</h2>
+      <p>We collect only the information needed to operate and improve the App. This falls into the following categories:</p>
+
+      <h3>Account &amp; Profile Information</h3>
+      <ul>
+        <li>Your full name, email address, and authentication credentials (created through Firebase Authentication, including email/password and Google sign-in).</li>
+        <li>Profile details you provide, such as your bio, profile picture, selected learning track, and account tier.</li>
+        <li>Onboarding status used to tailor your first-time experience.</li>
+      </ul>
+
+      <h3>Learning &amp; Progress Data</h3>
+      <ul>
+        <li>Your skill progress, current and longest learning streaks, successful-day timestamps, completed levels, and any unlocked rewards (for example, Quality Points and milestone bonuses).</li>
+      </ul>
+
+      <h3>User-Generated Content</h3>
+      <ul>
+        <li>Code submissions, practice-project answers, and responses you provide during interactive AI roleplay and simulation exercises.</li>
+        <li>Chat messages you send in private chats, group chats, and workspace project channels — including text, file attachments, images, and voice messages.</li>
+        <li>Voice recordings you create for transcription, processed as described in Section 4.</li>
+      </ul>
+
+      <h3>Workspace (“Company”) Data</h3>
+      <ul>
+        <li>Workspace profiles, projects, tasks, and your assigned role (Officer, Manager, or Employee).</li>
+        <li>Applications you submit to join a workspace, including any resume text and application status.</li>
+      </ul>
+
+      <h3>Financial &amp; Wallet Data</h3>
+      <ul>
+        <li>Virtual balances tied to your account, including wallet balances, demo credits, and transaction history, as well as workspace vault and demo balances.</li>
+        <li>Payment and billing metadata processed securely through Stripe. <strong>We never receive or store your raw card details on our servers.</strong></li>
+      </ul>
+
+      <h3>Communications Data</h3>
+      <ul>
+        <li>Real-time voice and video used for workspace communication is routed through the Agora real-time network and is <strong>not stored</strong> on our servers.</li>
+        <li>Push-notification tokens used to deliver chat, application, and streak-reminder notifications via Firebase Cloud Messaging.</li>
+      </ul>
+
+      <h3>Usage &amp; Analytics Data</h3>
+      <ul>
+        <li>App events such as sign-ups, logins, onboarding completion, and streak milestones, used to fix bugs and understand how features perform. Analytics tracking is subject to your consent (see Section 6).</li>
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2><span class="num">2</span> How We Use Your Information</h2>
+      <ul>
+        <li>To authenticate your account and sync your profile across devices.</li>
+        <li>To deliver personalized, AI-generated learning plans and verify your project submissions.</li>
+        <li>To transcribe voice messages and generate spoken audio where applicable.</li>
+        <li>To power real-time chats, workspace collaboration, and team communication.</li>
+        <li>To track learning streaks, award rewards, and recognize milestones.</li>
+        <li>To send transactional push notifications for chats, workspace applications, and reminders.</li>
+        <li>To diagnose technical issues, maintain security, and improve the App.</li>
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2><span class="num">3</span> How Your Information Is Stored</h2>
+      <p><strong>Firebase Cloud Firestore</strong> is our primary database for user profiles, learning progress, chats, workspaces, applications, and notifications. Sensitive financial data (such as wallet balances and transaction history) is held in a protected subcollection secured by server-side Firebase Security Rules.</p>
+      <p><strong>Supabase</strong> stores our read-only educational curriculum (skill overviews, levels, tasks, summaries, and project options). For security, the App never connects to Supabase directly; curriculum requests are routed through a secure Firebase Cloud Function so that database access tokens are never exposed to your device.</p>
+    </section>
+
+    <section class="block">
+      <h2><span class="num">4</span> AI &amp; Voice Processing</h2>
+      <p>Some features rely on third-party AI and voice services to function:</p>
+      <ul>
+        <li><strong>Google Gemini API</strong> grades your submissions, verifies skill progression, and powers interactive roleplay and simulation exercises. Your code submissions, practice answers, and roleplay messages are sent to Google for processing.</li>
+        <li><strong>Google Cloud Speech-to-Text</strong> transcribes your voice messages into text. Audio is sent securely for transcription and returned as text.</li>
+        <li><strong>Google Cloud Text-to-Speech</strong> converts text content into synthesized audio that is streamed back to you.</li>
+      </ul>
+      <div class="callout">AI evaluations may occasionally be inaccurate. AI outputs are provided to support your learning and should not be treated as professional or definitive assessments.</div>
+    </section>
+
+    <section class="block">
+      <h2><span class="num">5</span> How We Share Your Information</h2>
+      <p><strong>We do not sell your personal data.</strong> To provide the App, we share data with the trusted service providers below, each acting as a data processor for the stated purpose:</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Service</th><th>Purpose</th><th>Data shared</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Firebase Auth</td><td>Sign-in &amp; authentication</td><td>Email, password, Google sign-in tokens, account ID</td></tr>
+            <tr><td>Firebase / Firestore</td><td>Database &amp; storage</td><td>Profile, progress, chats, workspace &amp; wallet data</td></tr>
+            <tr><td>Supabase</td><td>Curriculum catalog</td><td>Learning-track selections (via secure cloud function)</td></tr>
+            <tr><td>Google Gemini API</td><td>AI grading &amp; roleplay</td><td>Code, practice answers, roleplay messages</td></tr>
+            <tr><td>Google Cloud STT</td><td>Voice transcription</td><td>Voice recordings (returned as text)</td></tr>
+            <tr><td>Google Cloud TTS</td><td>Speech generation</td><td>Text content (returned as audio)</td></tr>
+            <tr><td>Agora RTC</td><td>Live voice/video calls</td><td>Real-time audio/video streams (not stored)</td></tr>
+            <tr><td>Stripe</td><td>Payments &amp; credits</td><td>Billing info &amp; payment metadata (no raw card data on our servers)</td></tr>
+            <tr><td>Firebase Analytics</td><td>Usage analytics</td><td>App events (consent-based)</td></tr>
+            <tr><td>Facebook App Events</td><td>Marketing optimization</td><td>Standard mobile event attributes (consent-based)</td></tr>
+            <tr><td>TikTok SDK (Android)</td><td>Conversion measurement</td><td>Device conversion events (consent-based)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>We may also disclose information where required by law, to enforce our Terms of Service, or to protect the rights, safety, and security of our users and the App.</p>
+    </section>
+
+    <section class="block">
+      <h2><span class="num">6</span> Your Privacy Choices &amp; Consent</h2>
+      <ul>
+        <li><strong>Tracking consent:</strong> Before any advertising or marketing analytics are enabled, the App asks for your permission — through Apple’s App Tracking Transparency on iOS and an equivalent consent dialog on Android.</li>
+        <li><strong>Opt out anytime:</strong> If you decline or later opt out, advertising signals to Firebase Analytics (GA4), the Facebook SDK, and the TikTok SDK are disabled. You can change your choice at any time using the tracking consent toggle in the App’s settings.</li>
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2><span class="num">7</span> Data Retention &amp; Account Deletion</h2>
+      <p>We retain your information for as long as your account is active or as needed to provide the App. You are in control of your data:</p>
+      <ul>
+        <li><strong>Account deletion:</strong> You can permanently delete your account at any time by tapping <strong>Remove Account</strong> in Settings. This erases your Firestore profile document — including your profile details, learning streaks, and skill progress — and then removes your credentials from Firebase Authentication.</li>
+        <li><strong>Shared content:</strong> To preserve the integrity of group chats and workspace project histories, messages you sent in shared spaces may remain after deletion, but they are dissociated from your deleted profile.</li>
+        <li><strong>Opt-out:</strong> You can disable analytics tracking at any time using the consent toggle in Settings.</li>
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2><span class="num">8</span> Data Security</h2>
+      <p>We protect your data using industry-standard safeguards, including server-side Firebase Security Rules, restricted access to sensitive financial subcollections, and routing of third-party database and AI requests through secure cloud functions so that access tokens are never exposed to your device. No method of transmission or storage is completely secure, but we work continuously to protect your information.</p>
+    </section>
+
+    <section class="block">
+      <h2><span class="num">9</span> Children’s Privacy</h2>
+      <p>Peak is intended for users aged 16 and older. We do not knowingly collect personal information from children under the age threshold required in their region. If you believe a child has provided us with personal information, please contact us so we can remove it.</p>
+    </section>
+
+    <section class="block">
+      <h2><span class="num">10</span> International Data Transfers</h2>
+      <p>Our service providers (including Google, Stripe, Agora, Supabase, Meta, and TikTok) may process and store data in countries other than your own. Where data is transferred internationally, it remains protected in accordance with this Policy and applicable safeguards.</p>
+    </section>
+
+    <section class="block">
+      <h2><span class="num">11</span> Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. When we make material changes, we will revise the “Last updated” date above and, where appropriate, notify you within the App. Your continued use of Peak after an update means you accept the revised Policy.</p>
+    </section>
+
+    <section class="block">
+      <h2><span class="num">12</span> Contact Us</h2>
+      <p>If you have questions about this Privacy Policy or your data, contact us at <a class="link" href="mailto:support@yourdomain.com">support@yourdomain.com</a>.</p>
+    </section>
+  </article>
+
+  <!-- ============ TERMS OF SERVICE ============ -->
+  <article class="doc" id="doc-terms" role="tabpanel" aria-labelledby="tab-terms" hidden>
+    <div class="doc-head">
+      <span class="doc-eyebrow">Terms of Service</span>
+      <h1>Terms of Service</h1>
+      <p class="updated">Last updated: <strong>June 6, 2026</strong></p>
+    </div>
+
+    <p class="lead">Welcome to Peak. These Terms of Service govern your access to and use of the App. Please read them carefully.</p>
+    <p>Peak (the “App”) is owned and operated by PatChamp (“we,” “us,” or “our”). By downloading, installing, or using the App, you agree to be bound by these Terms. If you do not agree, please do not access or use the App.</p>
+
+    <section class="block">
+      <h2><span class="num">1</span> Eligibility &amp; Accounts</h2>
+      <ul>
+        <li>You must be at least 16 years old (or the minimum age required in your region) to use Peak.</li>
+        <li>You are responsible for the accuracy of your account information and for keeping your login credentials secure. You are responsible for all activity that occurs under your account.</li>
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2><span class="num">2</span> Description of Service</h2>
+      <p>Peak is an educational and professional ecosystem designed to guide users through structured skill development. We provide AI-generated learning plans, project-based skill verification, interactive practice and roleplay exercises, and collaborative workspaces (“Companies”) where users can create projects, assign tasks, communicate, and build teams.</p>
+    </section>
+
+    <section class="block">
+      <h2><span class="num">3</span> AI-Powered Verification &amp; Technology Disclaimers</h2>
+      <p>The App uses advanced third-party AI models (including the Google Gemini API) to grade submissions, verify skill progression, and generate simulated roleplay scenarios.</p>
+      <ul>
+        <li>While we strive for high-quality evaluations, AI models can occasionally produce incorrect information or verify inaccurate submissions.</li>
+        <li>All AI outputs, suggestions, and verification assessments are provided “as is.” You should exercise independent judgment before relying on them.</li>
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2><span class="num">4</span> Workspaces, Collaboration &amp; Financial Features</h2>
+      <p>Users can establish or join collaborative workspaces (“Companies”) with defined roles — Officers, Managers, and Employees.</p>
+      <ul>
+        <li><strong>Intermediary role only:</strong> The App acts solely as a platform to facilitate project collaboration, task allocation, and points/rewards management. We are not an employer, agent, or contracting party to any relationship, freelance arrangement, or employment structure formed between users in these workspaces.</li>
+        <li><strong>Vaults, credits &amp; bounties:</strong> Workspace payouts, virtual balances, and demo credits are handled entirely at the discretion of the workspace Officers and Managers. We are not liable for any disputes arising from project assignments, approvals, or workspace credit distributions.</li>
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2><span class="num">5</span> Payments, Credits &amp; Virtual Balances</h2>
+      <ul>
+        <li>Funding, credits, and virtual balances are processed securely through Stripe. By making a transaction, you agree to Stripe’s applicable terms.</li>
+        <li>Demo credits and demo balances hold no monetary value and are provided for testing and simulation purposes only.</li>
+        <li>Except where required by law, payments and credit purchases are non-refundable.</li>
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2><span class="num">6</span> User Content &amp; Intellectual Property</h2>
+      <ul>
+        <li><strong>Your content:</strong> You retain full ownership of any text, code, files, or project submissions you create, upload, or share. By using the App, you grant us a limited license to store, process, and display your content solely to operate and provide the App’s features.</li>
+        <li><strong>Our content:</strong> Peak retains all rights, title, and ownership in the App’s curriculum database, generated learning plans, skill trees, user-interface designs, logos, and system-generated exercises.</li>
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2><span class="num">7</span> Acceptable Use &amp; Restrictions</h2>
+      <p>You agree not to:</p>
+      <ul>
+        <li>Attempt to manipulate, exploit, or bypass the AI grading and verification systems.</li>
+        <li>Engage in harassment, hate speech, or abuse in private chats, group threads, or workspace channels.</li>
+        <li>Upload unlawful, infringing, or malicious content, or impersonate any person or entity.</li>
+        <li>Interfere with or disrupt the security or integrity of our backend systems (including Firebase and Supabase).</li>
+      </ul>
+      <p>We reserve the right to suspend or terminate accounts that violate these restrictions.</p>
+    </section>
+
+    <section class="block">
+      <h2><span class="num">8</span> Third-Party Services</h2>
+      <p>The App relies on third-party services — including Google (Gemini, Cloud STT/TTS, Firebase, Analytics), Supabase, Agora, Stripe, Meta, and TikTok — to deliver its features. Your use of these features may also be subject to those providers’ terms and policies. We are not responsible for the practices of third-party services.</p>
+    </section>
+
+    <section class="block">
+      <h2><span class="num">9</span> Disclaimers &amp; Limitation of Liability</h2>
+      <p>The App is provided “as is” and “as available,” without warranties of any kind, whether express or implied. To the fullest extent permitted by law, PatChamp shall not be liable for any indirect, incidental, special, or consequential damages, or for any loss of data, profits, or workspace credits, arising from your use of the App.</p>
+    </section>
+
+    <section class="block">
+      <h2><span class="num">10</span> Termination</h2>
+      <p>You may stop using the App and delete your account at any time through Settings. We may suspend or terminate your access if you violate these Terms or use the App in a manner that may cause harm to us or other users. Provisions that by their nature should survive termination will continue to apply.</p>
+    </section>
+
+    <section class="block">
+      <h2><span class="num">11</span> Changes to These Terms</h2>
+      <p>We may modify these Terms from time to time. When we make material changes, we will update the “Last updated” date above. Your continued use of the App after changes take effect constitutes acceptance of the revised Terms.</p>
+    </section>
+
+    <section class="block">
+      <h2><span class="num">12</span> Governing Law</h2>
+      <p>These Terms are governed by the laws of <strong>[your country/region]</strong>, without regard to its conflict-of-laws principles. Any disputes arising from these Terms or your use of the App will be subject to the courts of that jurisdiction.</p>
+    </section>
+
+    <section class="block">
+      <h2><span class="num">13</span> Contact Us</h2>
+      <p>For questions about these Terms, contact us at <a class="link" href="mailto:support@yourdomain.com">support@yourdomain.com</a>.</p>
+    </section>
+  </article>
+
+</main>
+
+<!-- ─────────────── FOOTER ─────────────── -->
+<footer class="site">
+  <div class="foot-inner">
+    <span>© <span id="year"></span> PatChamp · Peak. All rights reserved.</span>
+    <span class="foot-links">
+      <button onclick="showDoc('privacy')">Privacy</button>
+      <button onclick="showDoc('terms')">Terms</button>
+    </span>
+  </div>
+</footer>
+
+<script>
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const tabs = {
+    privacy: { tab: document.getElementById('tab-privacy'), doc: document.getElementById('doc-privacy') },
+    terms:   { tab: document.getElementById('tab-terms'),   doc: document.getElementById('doc-terms') }
+  };
+
+  function showDoc(name, updateHash = true) {
+    if (!tabs[name]) name = 'privacy';
+    Object.keys(tabs).forEach(key => {
+      const isActive = key === name;
+      tabs[key].tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      tabs[key].doc.hidden = !isActive;
+    });
+    if (updateHash) history.replaceState(null, '', '#' + name);
+    document.title = (name === 'terms' ? 'Terms of Service' : 'Privacy Policy') + ' — Peak';
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }
+
+  // Tab clicks
+  tabs.privacy.tab.addEventListener('click', () => showDoc('privacy'));
+  tabs.terms.tab.addEventListener('click',   () => showDoc('terms'));
+
+  // Deep-link support: #privacy or #terms (so app buttons can link straight to a page)
+  function fromHash() {
+    const h = (location.hash || '').replace('#', '').toLowerCase();
+    showDoc(h === 'terms' ? 'terms' : 'privacy', false);
+  }
+  window.addEventListener('hashchange', fromHash);
+  fromHash(); // initial load
+</script>
+
+</body>
+</html>
